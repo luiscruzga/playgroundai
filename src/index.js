@@ -6,20 +6,31 @@ const { SEARCH_URL, CREATE_URL, CREATE_READY_URL } = require('./config/constants
 
 class PlaygroundAI {
   constructor(opts) {
-    this.mode = opts.sessionToken && opts.sessionToken !== '' ? 'token' : 'login';
-    this.sessionToken = opts.sessionToken || '';
-    this.csrfToken = opts.csrfToken || '';
-    this.cookie = `__Secure-next-auth.callback-url=https%3A%2F%2Fplaygroundai.com%2Flogin;__Host-next-auth.csrf-token=${this.csrfToken};__Secure-next-auth.session-token=${this.sessionToken}`;
-    this.username = this.mode === 'login' ? opts.username : '';
-    this.password = this.mode === 'login' ? opts.password : '';
+    if (opts) {
+      this.mode = opts.sessionToken && opts.sessionToken !== '' ? 'token' : 'login';
+      this.sessionToken = opts.sessionToken || '';
+      this.csrfToken = opts.csrfToken || '';
+      this.cookie = `__Secure-next-auth.callback-url=https%3A%2F%2Fplaygroundai.com%2Flogin;__Host-next-auth.csrf-token=${this.csrfToken};__Secure-next-auth.session-token=${this.sessionToken}`;
+      this.username = this.mode === 'login' ? opts.username : '';
+      this.password = this.mode === 'login' ? opts.password : '';
+    } else {
+      this.mode = 'token';
+      this.sessionToken = '';
+      this.csrfToken = '';
+      this.cookie = '';
+      this.username = '';
+      this.password = '';
+    }
   }
 
   async search(prompt) {
     try {
+      if (!prompt || prompt === '') return Promise.reject('no prompt provided!');
+
       const _prompt = querystring.escape(prompt);
       const url = `${SEARCH_URL}${_prompt}`;
       const res = await axios.get(url);
-      return res.data.pageProps.data;
+      return res.data.images;
     } catch (e) {
       return {
         error: e.message

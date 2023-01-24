@@ -81,7 +81,37 @@ const main = async () => {
 main();
 ```
 
+OUTPUTS
 
+```js
+[
+  {
+    id: 'cl9y....',
+    prompt: 'cyber cat',
+    url: 'https://storage.go...png',
+    url_jpeg: 'https://storage.goo....',
+    width: 512,
+    height: 512,
+    private: false,
+    title: null,
+    sampler: 0,
+    cfg_scale: 7,
+    seed: 206440933,
+    source: 'stable-diffusion',
+    batchId: 'Bjuwxr5LWa',
+    remixedFromUrl: null,
+    remixedFromId: null,
+    user: {
+      id: 'cl....',
+      displayName: '....',
+      image: 'https://lh3.go.....',
+      isFollowing: false
+    },
+    ImageReaction: [],
+    remixedFrom: { id: null, url: null }
+  }
+]
+```
 ## Authors
 
 - [@luiscruzga](https://www.github.com/luiscruzga)

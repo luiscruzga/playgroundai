@@ -1,11 +1,11 @@
 {
   "name": "playgroundai",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "node ./examples/modify.js"
+    "test": "node ./examples/search.js"
   },
   "repository": {
     "type": "git",
