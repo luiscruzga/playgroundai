@@ -1,0 +1,30 @@
+{
+  "name": "playgroundai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "node ./examples/modify.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiscruzga/playgroundai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luiscruzga/playgroundai/issues"
+  },
+  "homepage": "https://github.com/luiscruzga/playgroundai#readme",
+  "dependencies": {
+    "axios": "^1.2.3",
+    "fs": "0.0.1-security",
+    "image-downloader": "^4.3.0",
+    "node-base64-image": "^2.0.4",
+    "path": "^0.12.7",
+    "querystring": "^0.2.1",
+    "short-unique-id": "^4.4.4"
+  }
+}
